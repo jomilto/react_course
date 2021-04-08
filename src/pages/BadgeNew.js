@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
@@ -25,8 +24,7 @@ class BadgeNew extends React.Component {
 
    render() {
        return (
-           <div>
-               <Navbar />
+           <React.Fragment>
                <Hero />
                <div className="container">
                    <div className="row">
@@ -46,7 +44,7 @@ class BadgeNew extends React.Component {
                         </div>
                    </div>
                </div>
-           </div>
+           </React.Fragment>
        );
    }
 }
