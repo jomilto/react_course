@@ -50,7 +50,7 @@ class Badges extends React.Component {
                 <Navbar />
                 <Hero />
 
-                <div className="Badges_container">
+                <div className="Badges__container">
                     <div className="Badges__buttons">
                         <a href="/badges/new" className="btn btn-primary">New Badge</a>
                     </div>
