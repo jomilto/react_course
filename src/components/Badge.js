@@ -23,7 +23,7 @@ class Badge extends React.Component {
                      <img src={confLogo} alt="logo de la conf" />
                 </div>
                 <div className="Badge__section-name">
-                    <Gravatar className="Badge__avatar" email={email} />
+                    <Gravatar className="Badge__avatar" email={email} alt="avatar"/>
                     <h1>{firstName}<br />{lastName}</h1>
                 </div>
                 <div className="Badge__section-info">

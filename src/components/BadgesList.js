@@ -11,7 +11,7 @@ class BadgesListItem extends React.Component {
         <div className="BadgesListItem">
           <Gravatar
             className="BadgesListItem__avatar"
-            src={this.props.badge.email}
+            email={this.props.badge.email}
             alt={`${this.props.badge.firstName} ${this.props.badge.lastName}`}
           />
   
