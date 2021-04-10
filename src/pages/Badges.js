@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import './styles/Badges.css';
 import Hero from '../components/Hero';
 import BadgesList from '../components/BadgesList';
+import Loading from '../components/Loading';
 
 import api from '../api';
 
@@ -55,7 +56,7 @@ class Badges extends React.Component {
       console.log('2 y 4. render');
 
       if(this.state.loading === true) {
-        return 'Loading...'
+        return <Loading />;
       }
 
       if(Boolean(this.state.error) === true) {
