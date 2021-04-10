@@ -5,6 +5,7 @@ import './styles/Badges.css';
 import Hero from '../components/Hero';
 import BadgesList from '../components/BadgesList';
 import Loading from '../components/Loading';
+import PageError from '../components/PageError';
 
 import api from '../api';
 
@@ -60,7 +61,7 @@ class Badges extends React.Component {
       }
 
       if(Boolean(this.state.error) === true) {
-        return `Error ${this.state.error.message}`;
+        return <PageError error={this.state.error} />
       }
 
         return (
