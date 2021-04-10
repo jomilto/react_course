@@ -3,17 +3,22 @@ import React from 'react';
 import Hero from '../components/Hero';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
+import Loading from '../components/Loading';
 
 import api from '../api';
 
 class BadgeNew extends React.Component {
-   state = { form: {
-       firstName: '',
-       lastName: '',
-       email: '',
-       jobTitle: '',
-       twitter: ''
-   }};
+   state = { 
+       loading: false,
+       error: null,
+       form: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            jobTitle: '',
+            twitter: ''
+        }
+    };
 
    handleChange = e =>{
        this.setState({
@@ -21,7 +26,7 @@ class BadgeNew extends React.Component {
                ...this.state.form,
                [e.target.name]: e.target.value
            }
-       })
+       });
    };
 
    handleSubmit =  async e => {
@@ -31,13 +36,17 @@ class BadgeNew extends React.Component {
     try {
         await api.badges.create(this.state.form);
         this.setState({loading:false});
-
+        this.props.history.push('/badges');
     }catch(error) {
         this.setState({loading:false, error: error });
     }
    };
 
    render() {
+    if(this.state.loading) {
+        return <Loading />;
+    }
+
        return (
            <React.Fragment>
                <Hero />
@@ -57,7 +66,8 @@ class BadgeNew extends React.Component {
                            <BadgeForm 
                                 onChange={this.handleChange} 
                                 formValues={this.state.form}
-                                onSubmit={this.handleSubmit}    
+                                onSubmit={this.handleSubmit}
+                                error={this.state.error}
                             />
                         </div>
                    </div>
