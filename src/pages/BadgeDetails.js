@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import Hero from '../components/Hero';
 import Badge from '../components/Badge';
+import DeleteBadgeModal from '../components/DeleteBadgeModal';
 
 function BadgeDetails (props) {
     const {badge} = props;
@@ -31,9 +32,15 @@ function BadgeDetails (props) {
                         </div>
 
                         <div className="">
-                            <button class="btn btn-danger">
-                                Delete
-                            </button>
+                            <button 
+                                className="btn btn-danger"
+                                onClick={props.onOpenModal}
+                            >Delete</button>
+                            <DeleteBadgeModal 
+                                onClose={props.onCloseModal}
+                                isOpen={props.modalIsOpen}
+                                onDeleteBadge={props.onDeleteBadge} 
+                            />
                         </div>
                     </div>
                 </div>
